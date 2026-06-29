@@ -1,8 +1,3 @@
-# app.py
-import streamlit as st
-st.title("Fake News Detection AI")
-st.write("Load trained models and build prediction UI here.")
-
 # =========================================================
 # FAKE NEWS DETECTION AI
 # STREAMLIT WEB APP
