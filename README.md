@@ -66,6 +66,10 @@ Perintah ini memuat artefak sungguhan, menguji input pendek, biasa, dan hampir m
 
 Pada kombinasi dependensi Windows yang diuji, TensorFlow harus dimuat sebelum Streamlit agar DLL dapat diinisialisasi. Gunakan launcher `python -m fake_news.serve` untuk menjalankan aplikasi.
 
+### Streamlit Community Cloud
+
+Saat membuat aplikasi, gunakan repo `Phonochron/Fake_news`, branch `main`, main file path `fake_news/dashboard.py`, dan pilih **Python 3.11** melalui **Advanced settings**. Versi dependensi di `requirements.txt` diuji pada Python 3.11; memilih Python 3.14 dapat membuat instalasi gagal sebelum aplikasi berjalan. Untuk aplikasi yang sudah terbuat dengan Python 3.14, catat subdomain dan secrets yang dipakai, lalu hapus dan deploy ulang dengan Python 3.11. Streamlit Community Cloud tidak mengubah versi Python aplikasi yang sudah dibuat lewat perubahan `requirements.txt`. Korpus NLTK `stopwords` akan diunduh otomatis saat pertama kali diperlukan jika belum tersedia.
+
 Untuk melatih ulang, pastikan `data/Fake.csv` dan `data/True.csv` tersedia, lalu jalankan:
 
 ```powershell

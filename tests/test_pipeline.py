@@ -11,11 +11,34 @@ from sklearn.exceptions import InconsistentVersionWarning
 from fake_news.config import MAX_INPUT_CHARACTERS, MODEL_FILES, TrainingConfig
 from fake_news.data import load_dataset, prepare_dataset, split_dataset
 from fake_news.prediction import ModelBundle, load_models, predict_news
-from fake_news.preprocessing import clean_text
+from fake_news.preprocessing import _english_stopwords, clean_text
 from fake_news.sequences import encode_sequences
 
 
 class PipelineTests(unittest.TestCase):
+    def test_missing_stopwords_are_downloaded_once(self):
+        with (
+            patch(
+                "fake_news.preprocessing.stopwords.words",
+                side_effect=[LookupError(), ["the", "and"]],
+            ) as words,
+            patch(
+                "fake_news.preprocessing.nltk.download", return_value=True
+            ) as download,
+        ):
+            self.assertEqual(_english_stopwords(), {"the", "and"})
+
+        download.assert_called_once_with("stopwords", quiet=True)
+        self.assertEqual(words.call_count, 2)
+
+    def test_failed_stopwords_download_has_clear_error(self):
+        with (
+            patch("fake_news.preprocessing.stopwords.words", side_effect=LookupError()),
+            patch("fake_news.preprocessing.nltk.download", return_value=False),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "Could not download"):
+                _english_stopwords()
+
     def test_preprocessing_removes_urls_numbers_and_stopwords(self):
         self.assertEqual(
             clean_text("The NEWS at https://example.com costs 100 dollars!"),

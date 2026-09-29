@@ -2,6 +2,8 @@
 
 Tahap produk menyediakan contoh input fiktif berbahasa Inggris, menjelaskan bahwa label adalah prediksi pola teks, memperingatkan input di bawah 30 kata, dan membatasi input hingga 50.000 karakter. Aplikasi belum divalidasi untuk bahasa lain dan tidak memverifikasi kebenaran suatu klaim.
 
+Untuk Streamlit Community Cloud, gunakan `fake_news/dashboard.py` sebagai main file path dan **Python 3.11** di Advanced settings. Jika aplikasi sudah dibuat dengan versi Python lain, catat subdomain dan secrets sebelum menghapus dan membuat ulang aplikasi dengan Python 3.11. Mengubah `requirements.txt` saja tidak mengganti interpreter aplikasi yang sudah dibuat. Saat pertama kali memproses teks, aplikasi mengunduh korpus NLTK `stopwords` jika belum tersedia; server memerlukan akses jaringan untuk langkah tersebut.
+
 Jalankan pemeriksaan pada mesin yang akan dipakai untuk deployment:
 
 ```powershell

@@ -3,19 +3,32 @@
 import re
 from functools import lru_cache
 
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
 
+def _english_stopwords() -> set[str]:
+    try:
+        return set(stopwords.words("english"))
+    except LookupError:
+        try:
+            downloaded = nltk.download("stopwords", quiet=True)
+        except OSError as exc:
+            raise RuntimeError("Could not download NLTK stopwords.") from exc
+        if not downloaded:
+            raise RuntimeError("Could not download NLTK stopwords.")
+        try:
+            return set(stopwords.words("english"))
+        except LookupError as exc:
+            raise RuntimeError(
+                "NLTK stopwords are unavailable after download."
+            ) from exc
+
+
 @lru_cache(maxsize=1)
 def _resources() -> tuple[set[str], PorterStemmer]:
-    try:
-        words = set(stopwords.words("english"))
-    except LookupError as exc:
-        raise RuntimeError(
-            "NLTK stopwords are missing. Run: python -m nltk.downloader stopwords"
-        ) from exc
-    return words, PorterStemmer()
+    return _english_stopwords(), PorterStemmer()
 
 
 def clean_text(text: str) -> str:
