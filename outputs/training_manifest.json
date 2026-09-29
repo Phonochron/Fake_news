@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run_id": "75e2ef71-b66a-4910-ba8a-8b6a742514f3",
+  "created_at_utc": "2026-09-29T12:40:51.721816+00:00",
+  "dataset": {
+    "Fake.csv": {
+      "sha256": "bebf8bcfe95678bf2c732bf413a2ce5f621af0102c82bf08083b2e5d3c693d0c"
+    },
+    "True.csv": {
+      "sha256": "ba0844414a65dc6ae7402b8eee5306da24b6b56488d6767135af466c7dcb2775"
+    }
+  },
+  "dataset_rows": {
+    "raw": 44898,
+    "unique_usable": 38942
+  },
+  "split_sizes": {
+    "train": 27259,
+    "validation": 5841,
+    "test": 5842
+  },
+  "training_config": {
+    "seed": 42,
+    "cv_folds": 3,
+    "lstm_epochs": 10,
+    "tfidf_max_features": 20000,
+    "tfidf_min_df": 2,
+    "tfidf_max_df": 0.95,
+    "nb_alphas": [
+      0.001,
+      0.01,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "logistic_max_iter": 2000,
+    "svm_c": 1.0,
+    "lstm_batch_size": 64,
+    "lstm_embedding_dim": 128,
+    "lstm_units": 64,
+    "lstm_dense_units": 32,
+    "lstm_dropout": 0.3,
+    "max_words": 10000,
+    "max_len": 100
+  },
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.0",
+    "tensorflow": "2.19.1",
+    "keras": "3.15.1",
+    "nltk": "3.9.4",
+    "streamlit": "1.28.0"
+  },
+  "decision": {
+    "strategy": "validation_selected_model",
+    "selected_model": "Linear SVM",
+    "selected_validation_f1": 0.9919641188562885,
+    "five_model_majority_validation_f1": 0.987066541705717,
+    "majority_has_correlated_vote": true,
+    "note": "Voting Ensemble already combines Naive Bayes, Logistic Regression, and Linear SVM. Counting it again with those models duplicates their influence. The deployed rule is the model selected on validation F1."
+  },
+  "selected_test_f1": 0.9915809167446211,
+  "model_sha256": {
+    "tfidf_vectorizer.pkl": "10de9898970ac623f1c2e78b70456df6605a6f0156b649695f9fd63148944edd",
+    "naive_bayes.pkl": "4f84b83ee8baeedbaf5f802805db66dd9c4c515a260bc113bd11aa2955bdf9ec",
+    "logistic_regression.pkl": "8bc17168b4b57b1a60201fc231696253ac74d467216645470b8746e62aa8fad3",
+    "svm.pkl": "6e7c7c05df0cefabb19f35ee6c7b41d79f273c0c5b4f524e8567480232322a7b",
+    "ensemble.pkl": "bf0856354e6dec98285f93094e3d7800a55469ae5c5a88d626a5fbef2e984964",
+    "tokenizer.pkl": "0df0f0bbb4ef07afe412f91e62b0e15ecde6fcf22d483a81817dbb75c4a4c771",
+    "lstm_model.h5": "bca9584c6087be3e4dd25839eeb413e1d9ce888352c947eebeac1c9941550cf0",
+    "selected_model.json": "ffefd9e71d7f4586b5fc6ac464f0d5e9389b30d86cabcce495c0af127f946a58"
+  },
+  "report_sha256": {
+    "confusion_matrix.png": "b5477ab9d5777eb3381b6787999c85c5a1868de0edc075bd9c775f773389b79f",
+    "cv_metrics.csv": "e9425b761b9aca3e4e4d9cad87ea68fa842f30943e20cb0bbd8fd2f3068c1fa3",
+    "data_audit.json": "1db8b473ff2c3550d968ff1ed8f6be1ab036b4689f15fdf6e049585c1635b520",
+    "decision_policy.json": "20af42e92db9dc9aaadafd7b832ee3a3d2afbdf553db42bedacd5023121ebd9e",
+    "evaluation_report.md": "6ebe1f054578914f156b869b9b9e3e02d377e02db0df1698bcf173dd0aab5d8d",
+    "metrics.csv": "efb9e0771d885472572dc6c7796ae15179ceb67029aa43ccadc0d541dc5d4e1d",
+    "subject_label_counts.csv": "db43f82752e0bf4cfe2ac5bb0b31d69e16ca481d99c8dbdeaddd614185464519",
+    "top_hoax_words.csv": "020d29ca0cef1be79dff53fefa5795feed3902d3a8497b088f118480490217f4",
+    "validation_metrics.csv": "d539335ac4ed22103b1d053f2ee1621e9628b0fa3c86502fea032dc90579eb68"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "raw_rows": 44898,
+  "raw_label_counts": {
+    "0": 21417,
+    "1": 23481
+  },
+  "blank_title_rows": 0,
+  "blank_text_rows": 631,
+  "blank_subject_rows": 0,
+  "blank_date_rows": 0,
+  "blank_article_rows": 9,
+  "conflicting_label_rows": 0,
+  "duplicate_clean_text_rows": 5947,
+  "unique_rows": 38942,
+  "unique_label_counts": {
+    "0": 21042,
+    "1": 17900
+  },
+  "reuters_marker_rate": {
+    "0": 0.9981790166690012,
+    "1": 0.013116988203228142
+  },
+  "subject_by_label": [
+    {
+      "subject": "Government News",
+      "real": 0,
+      "fake": 1570
+    },
+    {
+      "subject": "Middle-east",
+      "real": 0,
+      "fake": 778
+    },
+    {
+      "subject": "News",
+      "real": 0,
+      "fake": 9050
+    },
+    {
+      "subject": "US_News",
+      "real": 0,
+      "fake": 783
+    },
+    {
+      "subject": "left-news",
+      "real": 0,
+      "fake": 4459
+    },
+    {
+      "subject": "politics",
+      "real": 0,
+      "fake": 6841
+    },
+    {
+      "subject": "politicsNews",
+      "real": 11272,
+      "fake": 0
+    },
+    {
+      "subject": "worldnews",
+      "real": 10145,
+      "fake": 0
+    }
+  ],
+  "unparsed_date_rows": 10,
+  "date_min": "2015-03-31",
+  "date_max": "2018-02-19"
+}

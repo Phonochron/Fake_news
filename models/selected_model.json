@@ -1,0 +1,4 @@
+{
+  "model": "Linear SVM",
+  "strategy": "validation_selected_model"
+}

@@ -1,51 +1,51 @@
-Top_Hoax_Words
-trump
-video
-peopl
-like
-one
-imag
-hillari
-obama
-presid
-clinton
-get
-go
-say
-time
-via
-american
-said
-donald
-would
-make
-know
-even
-state
-donald trump
-republican
-news
-america
-want
-right
-us
-support
-white
-call
-think
-show
-new
-watch
-report
-year
-thing
-use
-also
-come
-take
-democrat
-way
-campaign
-media
-live
-elect
+Term,Naive_Bayes_Log_Odds
+imag via,12.211335215655776
+screen captur,11.120589956511198
+getti imag,10.808823885570403
+centuri wire,10.796301716947667
+via getti,10.536239808971
+belowfeatur,10.492587571292672
+belowfeatur imag,10.492587571292672
+video via,10.487328943647121
+flickr,10.266037012559302
+via screen,10.245717282220978
+wire say,10.185653299052765
+news st,10.135849742133649
+via screengrab,10.13428820396732
+fck,10.115624897113085
+wiretv,10.050288326691323
+subscrib becom,10.03632539564305
+member wiretv,10.015646428929465
+imag screenshot,10.013116092404543
+via flickr,9.98668762793167
+somodevillagetti,9.960145870567231
+chip somodevillagetti,9.95703925096672
+somodevillagetti imag,9.952091156954445
+jeanin,9.929857365283143
+via youtub,9.902635720132752
+tucker carlson,9.897018624828018
+judg jeanin,9.876818777882196
+via screenshot,9.840806368219333
+via chip,9.7961688056295
+boiler room,9.786959276038292
+gateway pundit,9.768843749127852
+video screenshot,9.766784918679383
+wonggetti,9.737486165984784
+alex wonggetti,9.73289605969508
+wonggetti imag,9.726252692724168
+js,9.725735032816413
+filessupport,9.695928431081605
+antifa,9.688442917422758
+fcking,9.674184974154318
+entir stori,9.662005630265181
+wire subscrib,9.65176983524869
+video hillari,9.628439552605577
+henningsen,9.611557411902506
+via alex,9.601769362808326
+angerergetti,9.571990759722503
+drew angerergetti,9.571990759722503
+cdata,9.566622271916414
+yr,9.564022854016173
+patrick henningsen,9.560545671273221
+wikimedia,9.5595190564404
+angerergetti imag,9.555509506815273

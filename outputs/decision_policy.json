@@ -1,0 +1,8 @@
+{
+  "strategy": "validation_selected_model",
+  "selected_model": "Linear SVM",
+  "selected_validation_f1": 0.9919641188562885,
+  "five_model_majority_validation_f1": 0.987066541705717,
+  "majority_has_correlated_vote": true,
+  "note": "Voting Ensemble already combines Naive Bayes, Logistic Regression, and Linear SVM. Counting it again with those models duplicates their influence. The deployed rule is the model selected on validation F1."
+}
