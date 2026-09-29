@@ -2,6 +2,8 @@
 
 import unittest
 from pathlib import Path
+import subprocess
+import sys
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
@@ -12,6 +14,29 @@ from fake_news.prediction import PredictionResult
 
 class DashboardTests(unittest.TestCase):
     app_path = Path(__file__).resolve().parent.parent / "fake_news" / "dashboard.py"
+
+    def test_dashboard_imports_package_when_run_as_nested_script(self):
+        project_root = self.app_path.parent.parent
+        script = """
+import runpy
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1]).resolve()
+sys.path = [path for path in sys.path if Path(path or '.').resolve() != root]
+runpy.run_path(str(root / 'fake_news' / 'dashboard.py'), run_name='import_check')
+"""
+        with TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [sys.executable, "-c", script, str(project_root)],
+                cwd=directory,
+                capture_output=True,
+                text=True,
+                timeout=30,
+                check=False,
+            )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_report_image_uses_file_bytes(self):
         from fake_news.dashboard import show_report

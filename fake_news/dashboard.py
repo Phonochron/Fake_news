@@ -1,16 +1,24 @@
-"""Streamlit interface; start it with python -m fake_news.serve."""
+"""Streamlit interface for the local launcher and Community Cloud entrypoint."""
+
+import sys
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from fake_news.config import (
+# Streamlit executes this file directly and may only add its directory to sys.path.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from fake_news.config import (  # noqa: E402
     MAX_INPUT_CHARACTERS,
     MIN_RECOMMENDED_WORDS,
     MODEL_DIR,
     OUTPUT_DIR,
 )
-from fake_news.prediction import load_models, predict_news
-from fake_news.provenance import verify_manifest_pair
+from fake_news.prediction import load_models, predict_news  # noqa: E402
+from fake_news.provenance import verify_manifest_pair  # noqa: E402
 
 EXAMPLE_ARTICLE = (
     "On Tuesday, the Riverside City Library announced that its reading room "
